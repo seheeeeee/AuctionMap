@@ -1,0 +1,25 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    ["@emotion"],
+    [
+      "@emotion/babel-plugin-jsx-pragmatic",
+      {
+        "export": "jsx",
+        "import": "__to_avoid_prepending_/** @jsxImportSource @emotion/react */",
+        "module": "@emotion/react",
+        "cssPropOptimization": true
+      }
+    ],
+    [
+      "@babel/plugin-transform-react-jsx",
+      {
+        "pragma": "__to_avoid_prepending_/** @jsxImportSource @emotion/react */"
+      }
+    ]
+  ]
+}

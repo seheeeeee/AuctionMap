@@ -1,0 +1,44 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "commonjs": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": ["react", "@typescript-eslint"],
+    "rules": {
+        "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+        "react/jsx-uses-vars": "error",
+        "react/jsx-uses-react": "error",
+        "react/prop-types": 0,
+        "no-undef": [2, { "typeof": true }],
+        "no-unused-vars": 0,
+        "@typescript-eslint/no-unused-vars": 0,
+        "react/no-children-prop": 0,
+        "react/jsx-first-prop-new-line": [2, "multiline"],
+        "react/jsx-max-props-per-line": [
+            2,
+            { "maximum": 1, "when": "multiline" }
+        ],
+        "linebreak-style": ["error", "unix"]
+    },
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx"],
+            "rules": {
+                "no-undef": "off"
+            }
+        }
+    ],
+    "ignorePatterns": ["**/build/*"]
+}

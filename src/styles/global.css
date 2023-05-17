@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "GmarketSansTTF";
+    src: url("https://dev.missgoauction.com/webview/fonts/GmarketSansTTFBold.ttf")
+        format("truetype");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "GmarketSansTTF";
+    src: url("https://dev.missgoauction.com/webview/fonts/GmarketSansTTFMedium.ttf")
+        format("truetype");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "GmarketSansTTF";
+    src: url("https://dev.missgoauction.com/webview/fonts/GmarketSansTTFLight.ttf")
+        format("truetype");
+    font-weight: 200;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "GmarketSansTTF", sans-serif;
+    font-weight: 500;
+}
+
