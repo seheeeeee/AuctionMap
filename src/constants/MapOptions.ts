@@ -3,7 +3,7 @@ interface mapOptionInterface extends naver.maps.MapOptions {
 }
 
 const mapOptions: mapOptionInterface = {
-    zoom: 18,
+    zoom: 7,
     zoomControl: false,
     tileTransition: true,
     mapTypeControl: false,

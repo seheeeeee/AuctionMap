@@ -92,7 +92,7 @@
         "@storybook/testing-library": "^0.0.13",
         "@types/draftjs-to-html": "^0.8.1",
         "@types/html-to-draftjs": "^1.4.0",
-        "@types/navermaps": "^3.0.17",
+        "@types/navermaps": "^3.6.5",
         "@types/react-date-range": "^1.4.4",
         "@types/react-datepicker": "^4.4.2",
         "@types/react-draft-wysiwyg": "^1.13.4",

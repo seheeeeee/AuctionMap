@@ -10,5 +10,7 @@ interface MarkerContentsType {
     markerType: "product" | "real";
     lng: number;
     lat: number;
+    zoom: number;
+    moveType: "zoom" | "list";
 }
 export type { MarkerContentsType };
