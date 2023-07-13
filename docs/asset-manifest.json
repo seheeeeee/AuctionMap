@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "http://localhost:3002/static/css/main.7cc1e653.css",
-    "main.js": "http://localhost:3002/static/js/main.cf41af3e.js",
-    "index.html": "http://localhost:3002/index.html",
-    "main.7cc1e653.css.map": "http://localhost:3002/static/css/main.7cc1e653.css.map",
-    "main.cf41af3e.js.map": "http://localhost:3002/static/js/main.cf41af3e.js.map"
+    "main.css": "https://seheeeeee.github.io/AuctionMap/static/css/main.7cc1e653.css",
+    "main.js": "https://seheeeeee.github.io/AuctionMap/static/js/main.cf41af3e.js",
+    "index.html": "https://seheeeeee.github.io/AuctionMap/index.html",
+    "main.7cc1e653.css.map": "https://seheeeeee.github.io/AuctionMap/static/css/main.7cc1e653.css.map",
+    "main.cf41af3e.js.map": "https://seheeeeee.github.io/AuctionMap/static/js/main.cf41af3e.js.map"
   },
   "entrypoints": [
     "static/css/main.7cc1e653.css",
