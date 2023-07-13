@@ -46,7 +46,7 @@
         "zustand-persist": "^0.4.0"
     },
     "scripts": {
-        "start": "export PORT=3002 && env-cmd -f .env.local react-app-rewired start",
+        "start": "export PORT=3002 react-app-rewired start",
         "build": "react-app-rewired build",
         "test": "react-app-rewired test",
         "eject": "react-app-rewired eject",
