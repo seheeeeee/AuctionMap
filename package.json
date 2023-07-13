@@ -1,5 +1,5 @@
 {
-    "name": "web",
+    "name": "auctionMap",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -45,7 +45,7 @@
     },
     "scripts": {
         "start": "export PORT=3002 && env-cmd -f .env.local react-app-rewired start",
-        "build": "env-cmd -f .env.production react-app-rewired build",
+        "build": "react-app-rewired build",
         "build-dev": "env-cmd -f .env.development react-app-rewired build",
         "build-stage": "env-cmd -f .env.staging react-app-rewired build",
         "test": "react-app-rewired test",
