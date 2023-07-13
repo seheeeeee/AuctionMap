@@ -42,6 +42,14 @@ const Marker = ({ type, displayName, count, item, isSearch = false, real, marker
             </div>
         );
     }
+    if (type === "mid") {
+        return (
+            <div className="mid marker_clu">
+                <p className="marker_clu_region">{displayName}</p>
+                <p className="marker_clu_count">{count}건</p>
+            </div>
+        );
+    }
     return <div></div>;
 };
 

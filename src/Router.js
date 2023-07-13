@@ -7,16 +7,16 @@ import Error from "./pages/Error";
 import Map from "@src/pages/Map";
 
 function Router() {
-  return (
-    <>
-      <Global styles={reset} />
-      <Routes>
-        {/* <Route exact path="*" element={<Navigate replace to="/login" />} /> */}
-        <Route exact path="/error" element={<Error />} />
-        <Route exact path="/map" element={<Map />} />
-      </Routes>
-    </>
-  );
+    return (
+        <>
+            <Global styles={reset} />
+            <Routes>
+                {/* <Route exact path="*" element={<Navigate replace to="/login" />} /> */}
+                <Route exact path="/error" element={<Error />} />
+                <Route exact path="*" element={<Map />} />
+            </Routes>
+        </>
+    );
 }
 
 export default Router;
