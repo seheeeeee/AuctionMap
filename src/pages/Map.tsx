@@ -3,17 +3,25 @@ import { css } from "@emotion/react";
 import { Common } from "@src/styles/Common";
 import { mapOptions, panoramaOptions } from "@src/constants/MapOptions";
 import { renderToStaticMarkup } from "react-dom/server";
-import Marker from "@src/components/Marker";
+import { Marker, FloatingMenu } from "@src/components";
 import zIndexOfMarker from "@src/constants/zIndexOfMarker";
 import useGetMarkerContents from "@src/hooks/map/useGetMarkerContents";
 
 function Map() {
     const mapRef = useRef<null | HTMLDivElement>(null);
+    const initLatLng = new naver.maps.LatLng(37.49094871675334, 127.05557683885974); //최초 좌표(도곡역)
 
     const [mapState, setMapState] = useState<naver.maps.Map>();
     const [markerContents, setMarkerContents] = useState<any[]>([]);
     const [markerType, setMarkerType] = useState<"product" | "real">("product");
     const [renderMarkerList, setRenderMarkerList] = useState<any[]>([]);
+
+    const [isStreetActive, setIsStreetActive] = useState(false);
+    const [isCadastralShow, setIsCadastralShow] = useState(false);
+    const [isPanoViewActive, setIsPanoViewActive] = useState(false);
+
+    let streetLayer = new naver.maps.StreetLayer(); //거리뷰
+    let cadastralLayer = new naver.maps.CadastralLayer(); //지적도
 
     const fetchMarkerContents = (zoom: number) => {
         const res = useGetMarkerContents(zoom);
@@ -22,8 +30,7 @@ function Map() {
     useEffect(() => {
         if (!mapRef.current || !naver) return;
         const map = new naver.maps.Map(mapRef.current, mapOptions);
-        const initLatLng = new naver.maps.LatLng(37.49094871675334, 127.05557683885974); //최초 좌표(도곡역)
-        map.setCenter(initLatLng);
+        // map.setCenter(initLatLng);
         fetchMarkerContents(7);
         setMapState(map);
 
@@ -87,6 +94,38 @@ function Map() {
         });
         setRenderMarkerList(newMarkerList);
     }, [markerContents]);
+    //플로팅 버튼(레이어 변경) 클릭 이벤트
+    const mapLayerHandler = {
+        activeRoadMap: (map: naver.maps.Map) => {
+            //거리뷰
+            streetLayer.setMap(map);
+            if (isStreetActive) {
+                streetLayer.setMap(null);
+                setIsPanoViewActive(false);
+            } else {
+                streetLayer.setMap(map);
+            }
+            setIsStreetActive(!isStreetActive);
+        },
+        activeCadastralMap: (map: naver.maps.Map) => {
+            //지적도
+            cadastralLayer.setMap(map);
+            if (isCadastralShow) {
+                cadastralLayer.setMap(null);
+            } else {
+                cadastralLayer.setMap(map);
+            }
+            setIsCadastralShow(!isCadastralShow);
+        },
+        activeSatelliteMap: (map: naver.maps.Map, mapType: "HYBRID" | "NORMAL") => {
+            //위성도
+            if (mapType !== "NORMAL") {
+                map.setMapTypeId(naver.maps.MapTypeId.HYBRID);
+            } else {
+                map.setMapTypeId(naver.maps.MapTypeId.NORMAL);
+            }
+        },
+    };
 
     return (
         <div
@@ -99,7 +138,9 @@ function Map() {
                 position: "relative",
             }}
             css={mapWrap}
-        />
+        >
+            <FloatingMenu map={mapState ?? null} mapLayerHandler={mapLayerHandler} />
+        </div>
     );
 }
 
